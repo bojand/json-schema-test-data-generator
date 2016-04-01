@@ -26,6 +26,7 @@
     "prepublish": "npm run dist"
   },
   "dependencies": {
+    "chance": "~1.0.0",
     "json-schema-faker": "^0.2.15",
     "lodash": "^4.7.0",
     "mpath": "^0.2.1",
