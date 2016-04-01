@@ -39,6 +39,14 @@
     "nyc": "^5.0.0",
     "xo": "^0.13.0"
   },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ],
+    "source": [
+      "dist/index.js"
+    ]
+  },
   "xo": {
     "envs": [
       "node",
@@ -53,8 +61,7 @@
       "babel/object-shorthand": 1,
       "brace-style": [
         0,
-        "1tbs",
-        {
+        "1tbs", {
           "allowSingleLine": false
         }
       ],
