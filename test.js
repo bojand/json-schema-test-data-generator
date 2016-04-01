@@ -1,4 +1,4 @@
-const generate = require('../dist');
-const schema = require('./user.json');
+const generate = require('./dist');
+const schema = require('./test/user.json');
 
 console.dir(generate(schema));
