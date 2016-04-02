@@ -49,3 +49,32 @@ test('should generate test data with negative type tests for simple primitive da
 
   t.pass();
 });
+
+test('should create negative for number multipleOf', t => {
+  const schema = {
+    type: 'object',
+    properties: {
+      foo: {
+        type: 'number',
+        multipleOf: 2
+      }
+    },
+    required: ['foo']
+  };
+
+  const data = generate(schema);
+  const required = schema.required;
+
+  required.forEach(req => {
+    const found = _.chain(data)
+      .filter(d => (d.valid === false) && (d.property && d.property === req) && (typeof d.data[req] !== 'undefined'))
+      .some(d => {
+        const val = d.data[req];
+        return val % 2 !== 0;
+      }).value();
+
+    t.true(found, `test failed for multipleOf of property: ${req}`);
+  });
+
+  t.pass();
+});
