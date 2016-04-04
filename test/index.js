@@ -309,3 +309,38 @@ test('should create negative for array property uniqueItems', t => {
 
   t.pass();
 });
+
+test('should create negative simple type schema', t => {
+  const schema = {
+    type: 'string'
+  };
+
+  const data = generate(schema);
+
+  const found = _.chain(data)
+    .filter(d => d.valid === false)
+    .some(d => typeof d.data !== 'string')
+    .value();
+
+  t.true(found);
+
+  t.pass();
+});
+
+test('should create negative simple type schema and additional properties', t => {
+  const schema = {
+    type: 'number',
+    minimum: 5
+  };
+
+  const data = generate(schema);
+
+  const found = _.chain(data)
+    .filter(d => d.valid === false)
+    .some(d => typeof d.data === 'number' && d.data < 5)
+    .value();
+
+  t.true(found);
+
+  t.pass();
+});
