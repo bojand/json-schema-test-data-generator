@@ -344,3 +344,60 @@ test('should create negative simple type schema and additional properties', t =>
 
   t.pass();
 });
+
+test('should create negative test data for schema with array', t => {
+  const schema = {
+    type: 'object',
+    properties: {
+      name: 'string',
+      foos: {
+        type: 'array',
+        items: {
+          type: 'string',
+          minLength: 5
+        }
+      }
+    },
+    required: ['name', 'foos']
+  };
+
+  const data = generate(schema);
+
+  const found = _.chain(data)
+    .filter(d => d.valid === false && d.data && Array.isArray(d.data.foos))
+    .some(d => d.message.indexOf('within array test' >= 0))
+    .value();
+
+  t.true(found);
+
+  t.pass();
+});
+
+test('should create negative test data for schema with array and minItems property', t => {
+  const schema = {
+    type: 'object',
+    properties: {
+      name: 'string',
+      foos: {
+        type: 'array',
+        items: {
+          type: 'string',
+          minLength: 5
+        },
+        minItems: 3
+      }
+    },
+    required: ['name', 'foos']
+  };
+
+  const data = generate(schema);
+
+  const found = _.chain(data)
+    .filter(d => d.valid === false && d.data && Array.isArray(d.data.foos))
+    .some(d => d.message.indexOf('within array test' >= 0) && d.data.foos.length < 3)
+    .value();
+
+  t.true(found);
+
+  t.pass();
+});
