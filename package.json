@@ -15,6 +15,7 @@
     "node": ">=0.10.0"
   },
   "main": "dist/index.js",
+  "bin": "bin/jstd-gen",
   "author": {
     "name": "Bojan Djurkovic <dbojan@gmail.com>"
   },

@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var generate = require('../dist');
+var param = process.argv[2];
+var fs = require('fs');
+var version = require('../package.json').version;
+
+if (!param) {
+  console.log('must specify a schema file')
+  process.exit(234);
+}
+
+if (param === '-v' || param === '--version') {
+  console.log(version);
+  process.exit(0);
+}
+
+if (param === '-h' || param === '--help') {
+  console.log('Usage:\n\tjstdgen schema.json');
+  process.exit(0);
+}
+
+var ext = path.extname(param)
+if (!ext || ext !== '.json') {
+  console.log('must specify a schema file')
+  process.exit(234);
+}
+
+var schemaStr = fs.readFileSync(param, 'utf8');
+var schema;
+try {
+  schema = JSON.parse(schemaStr);
+} catch (e) {
+  console.error(e);
+  process.exit(234);
+}
+
+console.log(generate(schema));
