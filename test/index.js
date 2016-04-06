@@ -349,7 +349,9 @@ test('should create negative test data for schema with array', t => {
   const schema = {
     type: 'object',
     properties: {
-      name: 'string',
+      name: {
+        type: 'string'
+      },
       foos: {
         type: 'array',
         items: {
@@ -377,7 +379,9 @@ test('should create negative test data for schema with array and minItems proper
   const schema = {
     type: 'object',
     properties: {
-      name: 'string',
+      name: {
+        type: 'string'
+      },
       foos: {
         type: 'array',
         items: {
@@ -398,6 +402,38 @@ test('should create negative test data for schema with array and minItems proper
     .value();
 
   t.true(found);
+
+  t.pass();
+});
+
+test('should create negative test data for nested object property', t => {
+  const schema = {
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string'
+      },
+      foo: {
+        type: 'object',
+        properties: {
+          bar: {
+            type: 'string',
+            minLength: 5
+          }
+        }
+      }
+    },
+    required: ['name', 'foo']
+  };
+
+  const data = generate(schema);
+
+  const found = _.chain(data)
+    .filter(d => d.valid === false && d.data && d.data.foo && typeof d.data.foo.bar !== 'undefined')
+    .filter(d => d.message.indexOf('nested object test' >= 0) && (typeof d.data.foo.bar !== 'string' || d.data.foo.bar.length < 5))
+    .value();
+
+  t.is(found.length, 2);
 
   t.pass();
 });

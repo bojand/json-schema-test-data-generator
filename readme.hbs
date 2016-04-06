@@ -53,75 +53,69 @@ Output:
 
 ```
 [ { valid: true,
-    data: { name: 'fugiat', email: 'MjfjpzalS@JOxoLRHpKqgHmKYm.myio' },
+    data: { name: 'Lorem', email: 'Rl5W1lWNWCxI2@IKXPOiX.tx' },
     message: 'should work with all required properties' },
   { valid: true,
     data:
-     { name: 'in',
-       email: 'tubE6OdaTldIIr@dJyCJwNjrZYzgPlXOEEYkrMV.amk' },
+     { name: 'in Excepteur',
+       email: 'dI4QX7i3o4aW1@pCYSSCbdzKxinpBylf.bid',
+       accountNumber: -45141884.82426107 },
     message: 'should work without optional property: active',
     property: 'active' },
   { valid: true,
     data:
-     { name: 'Excepteur consectetur incididunt do',
-       email: '4JD1Y-knFetc7@wEHDqxfhkANBq.vfj',
-       active: false },
+     { name: 'consectetur amet dolor',
+       email: 'ylDMsjokBq6o@kyISBuRrISJSVGfps.chh' },
     message: 'should work without optional property: accountNumber',
     property: 'accountNumber' },
   { valid: false,
-    data:
-     { email: 'WxfUig3@xtnbqPYGdgYtLHfkQWKnFmLvikw.pou',
-       active: false },
+    data: { email: 'inL@FijDPFt.jsv' },
     message: 'should not work without required property: name',
     property: 'name' },
   { valid: false,
-    data: { name: 'eiusmod', active: false },
+    data: { name: 'labore', active: true },
     message: 'should not work without required property: email',
     property: 'email' },
   { valid: false,
-    data:
-     { name: null,
-       email: 'jVjv@wqBJdScLzux.ni',
-       accountNumber: -71970471.04127705 },
-    message: 'should not work with \'name\' of type \'null\'',
+    data: { name: true, email: '3JbKSBUkulRThv@BB.bbsf' },
+    message: 'should not work with \'name\' of type \'boolean\'',
     property: 'name' },
   { valid: false,
     data:
-     { name: 'ea',
-       email: 'Ip3Q@ZNRLFPcnZBMBDYNHzYiGxGhRSIu.xb',
-       active: 'F^35OM2c' },
-    message: 'should not work with \'active\' of type \'string\'',
+     { name: '4x%u',
+       email: '5j6OszCCU-gZFx4@htyNxrrFVtVJghtWRaXQhjALzJqisumh.pmz' },
+    message: 'should not pass validation for minLength of property: name',
+    property: 'name' },
+  { valid: false,
+    data:
+     { name: 'deserunt nostrud dolore ea',
+       email: 'b9XLfGB3Bs@golsytCcKabldW.ufin',
+       active: 5313786068074496 },
+    message: 'should not work with \'active\' of type \'integer\'',
     property: 'active' },
   { valid: false,
-    data: { name: 'consectetur incididunt in culpa', email: false },
-    message: 'should not work with \'email\' of type \'boolean\'',
+    data:
+     { name: 'cillum ',
+       email: null,
+       accountNumber: 67113212.30977774 },
+    message: 'should not work with \'email\' of type \'null\'',
     property: 'email' },
   { valid: false,
-    data: { name: 'aliqua', email: 'EiQluDQ6vD&Ckp9YS' },
+    data: { name: 'anim laborum quis occaecat', email: '8WruHF' },
     message: 'should not pass validation for format of property: email',
     property: 'email' },
   { valid: false,
     data:
-     { name: 'sed anim eiusmod',
-       email: 'tXXyko@VDIJoVTpwbZsF.jro',
-       accountNumber: 'jPK*Ju8RtGj' },
+     { name: 'veniam nulla ut',
+       email: 'wYcn@RVogRzpzOxnmGQvStZmpMkil.czip',
+       accountNumber: 'sn0S2H9j)]' },
     message: 'should not work with \'accountNumber\' of type \'string\'',
     property: 'accountNumber' } ]
 ```
 
 ## API Reference
 
-<a name="generate"></a>
-
-## generate(schema) ⇒ <code>Array</code>
-Generates test data based on JSON schema
-
-**Kind**: global function  
-**Returns**: <code>Array</code> - array of test data objects  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| schema | <code>Object</code> | JSON Schema |
+{{>all-docs~}}
 
 ## CLI
 
