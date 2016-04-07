@@ -7,7 +7,7 @@ var fs = require('fs');
 var version = require('../package.json').version;
 
 if (!param) {
-  console.log('must specify a schema file')
+  console.log('must specify a schema file');
   process.exit(234);
 }
 
@@ -21,9 +21,9 @@ if (param === '-h' || param === '--help') {
   process.exit(0);
 }
 
-var ext = path.extname(param)
+var ext = path.extname(param);
 if (!ext || ext !== '.json') {
-  console.log('must specify a schema file')
+  console.log('must specify a schema file');
   process.exit(234);
 }
 
@@ -36,4 +36,4 @@ try {
   process.exit(234);
 }
 
-console.log(generate(schema));
+console.log(JSON.stringify(generate(schema)));
