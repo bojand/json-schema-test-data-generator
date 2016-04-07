@@ -1,7 +1,7 @@
 {
   "name": "json-schema-test-data-generator",
   "description": "Generate sample test data based on JSON schema",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "homepage": "https://github.com/bojand/json-schema-test-data-generator",
   "license": "MIT",
   "repository": {
@@ -15,13 +15,13 @@
     "node": ">=0.10.0"
   },
   "main": "dist/index.js",
-  "bin": "bin/jstd-gen",
+  "bin": "bin/jstdgen",
   "author": {
     "name": "Bojan Djurkovic <dbojan@gmail.com>"
   },
   "scripts": {
     "test": "npm run dist && ava -v",
-    "cover": "nyc ava",
+    "cover": "npm run dist && nyc ava",
     "docs": "jsdoc2md \"lib/**/*.js\" --template readme.hbs > README.md",
     "dist": "node ./node_modules/babel-cli/bin/babel.js lib --out-dir dist",
     "prepublish": "npm run dist"
@@ -30,7 +30,6 @@
     "chance": "~1.0.0",
     "json-schema-faker": "^0.2.15",
     "lodash": "^4.7.0",
-    "mpath": "^0.2.1",
     "prop-search": "~1.0.0"
   },
   "devDependencies": {

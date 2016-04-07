@@ -121,11 +121,11 @@ Output:
 Generates test data based on JSON schema
 
 **Kind**: global function  
-**Returns**: <code>Array</code> - array of test data objects  
+**Returns**: <code>Array</code> - Array of test data objects  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| schema | <code>Object</code> | JSON Schema |
+| schema | <code>Object</code> | Fully expanded (no <code>$ref</code>) JSON Schema |
 
 ## CLI
 
