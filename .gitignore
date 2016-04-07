@@ -7,3 +7,4 @@ dump.rdb
 npm-debug.log
 .nyc_output
 dist/
+test.js
